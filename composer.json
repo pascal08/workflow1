@@ -1,0 +1,31 @@
+{
+    "name": "pascal08/workflow",
+    "license": "proprietary",
+    "description": "Workflow Component",
+    "authors": [
+        {
+            "name": "Pascal Lubbers",
+            "email": "pascallubbers8@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Pascal\\Workflow\\": "src"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^7.1",
+        "phpstan/phpstan": "^0.9.2"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.2"
+    },
+    "scripts": {
+        "style-check": "phpcs --extensions=php",
+        "style-fix": "phpcbf",
+        "test": "phpunit --coverage-text --coverage-html Tests/_reports/",
+        "test-no-cov": "phpunit --no-coverage",
+        "analyse": "phpstan analyse --level=7 ./ -c ./phpstan.neon",
+        "ci": "composer style-check && composer analyse && composer test"
+    }
+}
